@@ -1,0 +1,7 @@
+name: ListKeys
+version: '${project.version}'
+main: me.creuch.listkeys.ListKeys
+api-version: 1.19
+commands:
+  klucze:
+    description: Otwiera GUI z kluczami
