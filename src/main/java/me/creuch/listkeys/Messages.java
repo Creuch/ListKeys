@@ -1,6 +1,7 @@
 package me.creuch.listkeys;
 
 import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.HumanEntity;
@@ -10,7 +11,36 @@ public class Messages {
     static ListKeys instance = ListKeys.getInstance();
     static String prefix = instance.getConfig().getString("prefix");
 
+    public static void send(CommandSender p, Component msg) {
+        MiniMessage mm = MiniMessage.miniMessage();
+        if(instance.getConfig().getBoolean("prefixEnabled")) {
+            p.sendMessage(mm.deserialize(replaceColors(prefix) + msg));
+        } else {
+            p.sendMessage(msg);
+        }
+    }
 
+    public static void send(HumanEntity p, Component msg) {
+        MiniMessage mm = MiniMessage.miniMessage();
+        if(instance.getConfig().getBoolean("prefixEnabled")) {
+            p.sendMessage(mm.deserialize(replaceColors(prefix) + msg));
+        } else {
+            p.sendMessage(msg);
+        }
+    }
+
+    public static void send(Player p, Component msg) {
+        MiniMessage mm = MiniMessage.miniMessage();
+        if(instance.getConfig().getBoolean("prefixEnabled")) {
+            p.sendMessage(mm.deserialize(replaceColors(prefix) + msg));
+        } else {
+            p.sendMessage(msg);
+        }
+    }
+    public static void send(Audience p, Component msg) {
+        MiniMessage mm = MiniMessage.miniMessage();
+        p.sendMessage(msg);
+    }
     public static void send(CommandSender p, String msg) {
         MiniMessage mm = MiniMessage.miniMessage();
         String newMessage = replaceColors(msg);

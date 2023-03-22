@@ -15,8 +15,6 @@ public class Klucze implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if(command.getName().equalsIgnoreCase("klucze")) {
             if(commandSender instanceof Player) {
-//                connect.connectMcList((Player) commandSender);
-//                connect.connectMcNagroda((Player) commandSender);
                 MainGUI.buildInventory().show((HumanEntity) commandSender);
             } else {
                 Messages.send(commandSender, "&cTej komendy mooże użyć tylko gracz!");
